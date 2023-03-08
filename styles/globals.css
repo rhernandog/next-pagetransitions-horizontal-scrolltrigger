@@ -314,7 +314,8 @@ nav li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.panel {
+.panel,
+.spacer {
   height: 100vh;
   position: sticky;
   top: 0;
@@ -355,3 +356,17 @@ nav li a:hover {
   text-align: center;
   line-height: 100px;
 }
+
+.horizontal-wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.horizontal-container {
+  width: 600%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: no-wrap;
+}
+

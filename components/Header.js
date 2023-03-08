@@ -9,13 +9,13 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link href="/">Boxes</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/scroll">ScrollTrigger</Link>
+            <Link href="/specialties">Specialties</Link>
           </li>
           <li>
-            <Link href="/layers">Layers Section</Link>
+            <Link href="/results">Results</Link>
           </li>
         </ul>
       </nav>

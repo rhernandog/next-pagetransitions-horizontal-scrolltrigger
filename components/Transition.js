@@ -19,7 +19,10 @@ const TransitionComponent = ({ children }) => {
           gsap.set(node, { autoAlpha: 0, scale: 0.8, xPercent: -100 });
           gsap.timeline({
             paused: true,
-            onComplete: () => toggleCompleted(true),
+            onComplete: () => {
+              gsap.set(node, { clearProps: "all" });
+              toggleCompleted(true);
+            },
           })
             .to(node, { autoAlpha: 1, xPercent: 0, duration: 0.25 })
             .to(node, { scale: 1, duration: 0.25 })
