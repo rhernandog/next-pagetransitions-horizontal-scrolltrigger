@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import gsap from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+import TransitionContext from "../context/TransitionContext";
 import { useIsomorphicLayoutEffect } from "../helpers/isomorphicEffect";
 
 if (typeof window !== "undefined") {
@@ -10,8 +11,11 @@ if (typeof window !== "undefined") {
 
 const Specialties = () => {
   const main = useRef();
+  const { completed } = useContext(TransitionContext);
 
   useIsomorphicLayoutEffect(() => {
+    if (!completed) return;
+
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray(".panel");
       const tl = gsap.timeline({
@@ -31,11 +35,11 @@ const Specialties = () => {
       });
     }, main);
     return () => ctx.revert();
-  }, []);
+  }, [completed]);
 
   return (
     <>
-    <section className="spacer purple"></section>
+    {/* <section className="spacer purple"></section> */}
     <div ref={main}>
       <div className="horizontal-wrapper">
         <div className="horizontal-container">
@@ -62,7 +66,7 @@ const Specialties = () => {
         </div>
       </div>
     </div>
-    <section className="spacer green"></section>
+    {/* <section className="spacer green"></section> */}
     </>
   );
 };
